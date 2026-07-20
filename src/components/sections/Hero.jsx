@@ -27,7 +27,7 @@ export default function Hero() {
             variants={fadeUp}
             className="text-5xl md:text-7xl font-display font-extrabold mb-6"
           >
-            Vaishnav Mapadi
+            Vaishnav Mapadi 🚀
           </motion.h1>
 
           <motion.h2
