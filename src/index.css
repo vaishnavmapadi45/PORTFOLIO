@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-glass-border;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles smooth scroll — avoid double-smoothing */
+  }
+
+  body {
+    @apply bg-base-950 text-white font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-aurora-violet/40 text-white;
+  }
+
+  /* Accessible focus states — don't remove outline, just restyle it */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-aurora-cyan;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-surface backdrop-blur-lg border border-glass-border shadow-glass rounded-2xl;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 md:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-aurora-violet via-aurora-indigo to-aurora-cyan;
+  }
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ============================
+   Skill Pills / Tech Badges
+============================ */
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+  transform: translateY(-4px);
+  border-color: #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
